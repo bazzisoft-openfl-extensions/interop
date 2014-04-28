@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+    <ndll name="interop" />
+
+    <!-- Use the following for an Android Java extension, not needed otherwise -->
+
+    <dependency name="interop" path="dependencies/android" if="android" />
+    <android extension="org.haxe.extension.interop.Interop" />
+
+    <include path="../extensionkit-0.1" />
+
+    <!--
+    Include template overrides for AndroidManifest.xml/Info.plist to indicate the
+    URL scheme our app is launched with.
+    -->
+    <template path="templates" />
+
+    <!-- Use the following environment define to set the URL scheme your app is launched from -->
+    <setenv name="LAUNCH_FROM_URL_SCHEME" value="interop" />
+
+</project>
