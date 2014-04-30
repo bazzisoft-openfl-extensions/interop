@@ -1,8 +1,10 @@
 Interop
 =======
 
-This extension provides functionality for launching other apps via a URL, and detecting
-when this app is launched by a URL with a custom scheme. This can be useful for
+### Launch your iOS/Android app via a URL with parameters
+
+This extension provides functionality for launching other apps via a URL, and detecting 
+when this app is launched by a URL with a custom scheme. This can be useful for 
 integrating with 3rd party apps or integrating to & from a website.
 
 
@@ -30,7 +32,7 @@ Usage
 
     <include path="/path/to/interop" />
 
-    <!--
+    <!-- 
     This specifies that our app can be launched with URLs like:
 
         my-custom-url-scheme://any-host/any/path
@@ -39,7 +41,7 @@ Usage
 
 
 ### Haxe
-
+    
     class Main extends Sprite
     {
     	public function new()
@@ -51,7 +53,7 @@ Usage
             stage.addEventListener(LaunchedFromURLEvent.LAUNCHED_FROM_URL, function(e) { trace(e); } );
 
             Interop.Initialize();
-
+    
             ...
         }
     }
@@ -67,12 +69,12 @@ If you override with your own `AndroidManifest.xml`, make sure to include the
 following additional `<intent-filter>` node under `<application>`:
 
     <intent-filter>
-
+    
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="my-custom-url-scheme"/>
-
+    
     </intent-filter>
 
 
