@@ -8,7 +8,10 @@ import interop.event.LaunchedFromURLEvent;
 import cpp.Lib;
 #elseif neko
 import neko.Lib;
+#elseif flash
+import openfl.Lib;
 #end
+
 
 #if (android && openfl)
 import openfl.utils.JNI;
@@ -57,10 +60,10 @@ class Interop
         #elseif flash
 
         // On flash, use the flashvar launchedfromurl= to set the launched from URL.
-        var flashvars:Dynamic<String> = stage.loaderInfo.parameters;
+        var flashvars:Dynamic<String> = Lib.current.stage.loaderInfo.parameters;
         if (Reflect.hasField(flashvars, "launchedfromurl"))
         {
-            SimulateLaunchedFromURL(Reflect.field(flashvars, "launchedfromurl"))
+            SimulateLaunchedFromURL(Reflect.field(flashvars, "launchedfromurl"));
         }
 
         #end
@@ -68,7 +71,7 @@ class Interop
 
     public static function LaunchURL(url:String) : Void
     {
-        flash.Lib.getURL(new URLRequest(url));
+        openfl.Lib.getURL(new URLRequest(url));
     }
 
     public static function SimulateLaunchedFromURL(url:String) : Void
