@@ -8,8 +8,6 @@
     <dependency name="interop" path="dependencies/android" if="android" />
     <android extension="org.haxe.extension.interop.Interop" />
 
-    <include path="../extensionkit" />
-
     <!--
     Include template overrides for AndroidManifest.xml/Info.plist to indicate the
     URL scheme our app is launched with.
